@@ -113,7 +113,7 @@ Testing MAE:     8.06    (average prediction error: 8.06 points)
 
 **SHAP Value Interpretation**: SHAP values represent the contribution of each feature to moving the model's prediction from the baseline. Higher values indicate stronger influence on popularity predictions.
 
-<img width="395" height="470" alt="02_shap_summary_bar" src="https://github.com/user-attachments/assets/3f5247eb-9dd8-4a3c-9c8a-b529dfaefee1" /><img width="1176" height="1410" alt="03_shap_beeswarm" src="https://github.com/user-attachments/assets/0aa2660b-6012-416f-86fa-20338acdf54f" />
+<img width="395" height="470" alt="02_shap_summary_bar" src="https://github.com/user-attachments/assets/3f5247eb-9dd8-4a3c-9c8a-b529dfaefee1" /><img width="392" height="470" alt="03_shap_beeswarm" src="https://github.com/user-attachments/assets/0aa2660b-6012-416f-86fa-20338acdf54f" />
 
 ### Explainability Methods Used
 
