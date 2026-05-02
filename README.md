@@ -229,7 +229,6 @@ Alternative models tested: Random Forest (R² = 0.73), Linear models (R² = .42)
 
 ## 📁 Repository Structure
 
-[Structure to be filled in by you - tell me how files should be organized]
 
 ---
 
