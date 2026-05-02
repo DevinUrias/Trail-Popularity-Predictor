@@ -3,6 +3,9 @@
 [![XGBoost Model](https://img.shields.io/badge/Model-XGBoost-orange)](https://xgboost.readthedocs.io/)
 [![R² Score](https://img.shields.io/badge/R%C2%B2%20Score-0.8556-brightgreen)](https://scikit-learn.org/stable/)
 
+
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/28c996e0-3b90-4e58-9dbd-6099d41f4246" />
+
 # Trail Popularity Prediction: A Data-Driven Approach to Park Resource Optimization
 
 ## Executive Summary
@@ -90,6 +93,9 @@ Testing MAE:     8.06    (average prediction error: 8.06 points)
 
 ## 🔬 Feature Importance & Explainability
 
+<img width="2384" height="732" alt="01_feature_optimization_comparison" src="https://github.com/user-attachments/assets/fb1323c9-6314-4337-b8cd-3c7a7101b354" />
+
+
 ### Top 10 Most Important Features (SHAP Analysis)
 
 | Rank | Feature | SHAP Impact | Type |
@@ -106,6 +112,9 @@ Testing MAE:     8.06    (average prediction error: 8.06 points)
 | 10 | Sentiment (Views) | 0.73 | Community |
 
 **SHAP Value Interpretation**: SHAP values represent the contribution of each feature to moving the model's prediction from the baseline. Higher values indicate stronger influence on popularity predictions.
+
+<img width="1185" height="1410" alt="02_shap_summary_bar" src="https://github.com/user-attachments/assets/3f5247eb-9dd8-4a3c-9c8a-b529dfaefee1" />
+<img width="1176" height="1410" alt="03_shap_beeswarm" src="https://github.com/user-attachments/assets/0aa2660b-6012-416f-86fa-20338acdf54f" />
 
 ### Explainability Methods Used
 
@@ -125,7 +134,7 @@ Testing MAE:     8.06    (average prediction error: 8.06 points)
 1. **Data Collection** (AllTrails.com)
    - 6,984 raw trails across Southwest U.S.
    - Web scraping with undetected-chromedriver
-   - Apify actor for automated data collection: [console.apify.com/actors/MMQdritoUWpzUVbah](https://console.apify.com/actors/MMQdritoUWpzUVbah)
+   - New Apify actor for streamlined data collection: [console.apify.com/actors/MMQdritoUWpzUVbah](https://console.apify.com/actors/MMQdritoUWpzUVbah)
 
 2. **Sentiment Scraping** 
    - Extracted review text from each trail page
@@ -204,9 +213,9 @@ Alternative models tested: Random Forest (R² = 0.73), Linear models (R² = .42)
 - **Predict Popularity Impacts**: Test what-if scenarios ("If we improve this trail's rating by 0.5 stars, popularity increases by ~2 points")
 - **Justify Budget Decisions**: Show decision-makers which trails drive revenue based on visitor numbers
 
-**Revenue Impact** (Example): For a park with 100 trails visited by 500,000 visitors/year spending $150 per visit
-- Identifying and optimizing top 20 trails (from baseline to optimized) could increase traffic by 15-20%
-- Result: +$11.25M - $15M annual regional economic activity
+**Revenue Impact** (Example):
+- Identifying and optimizing top 5 trails (from baseline to optimized) could increase popularity for average trails by 15-20 points
+- Result: Popular trails in parks drive attendance, increasing profitability of the park and the allocation of government funding, but in addition to park funding people going out spend more money in the local region. Food, entertainment, movies, etc, popular trails reasonably contribute upwards of $15M annually with regards to regional economic activity.
 - Jobs created: Estimated 150-200 jobs in gateway communities
 
 **Current Baseline**: No parks have ever quantified this before. This model enables the first data-driven approach to trail resource optimization.
@@ -215,15 +224,15 @@ Alternative models tested: Random Forest (R² = 0.73), Linear models (R² = .42)
 
 ## 📈 Model Limitations & Caveats
 
-1. **Regional Scope**: Model trained on Southwest U.S. trails (Arizona, Colorado, New Mexico, Utah, Wyoming). May not generalize perfectly to other regions with different climates, user demographics, or trail characteristics.
+1. **Regional Scope**: Model trained on Southwest U.S. trails (Arizona, Colorado, New Mexico, Utah). May not generalize perfectly to other regions with different climates, user demographics, or trail characteristics. For there it's reccomended you rebuild the model based on local dataset.
 
-2. **AllTrails Bias**: Popularity measured as AllTrails views/ratings. Does not capture local park popularity (visitors who don't use AllTrails).
+2. **AllTrails Bias**: Popularity measured as AllTrails views/ratings. Does not capture all local park popularity (visitors who don't use AllTrails). It should be proportional, but won't be exact.
 
 3. **Temporal Dynamics**: Model captures current state. Seasonal trends, emerging new trails, and changing user behavior may affect predictions.
 
 4. **Sentiment Limitations**: Sentiment analysis captures only review text, not all community engagement (social media mentions, word-of-mouth not captured).
 
-5. **Causation vs. Correlation**: Model identifies what features correlate with popularity, not necessarily what causes it. Featured photos correlate with popularity, but may indicate already-popular trails get more photos (reverse causation).
+5. **Causation vs. Correlation**: Model identifies what features correlate with popularity, not necessarily what causes it. Featured photos correlate with popularity, but may be related to the fact that already-popular trails get more photos (reverse causation).
 
 ---
 
@@ -256,7 +265,7 @@ python preprocess_pipeline.py
 # Using Jupyter notebook
 jupyter notebook Model_Streamlined_FINAL.ipynb
 
-# Or using training script (if available)
+# Or using training script
 python train_advanced_model.py
 ```
 **Output**: `final_model_trained.pkl` with R² = 0.8556
@@ -265,34 +274,16 @@ python train_advanced_model.py
 ```bash
 python baseline_model.py
 ```
-**Output**: `baseline_model.pkl` with R² = 0.7036
+**Output**: `predictions` and `SHAP visualizations of results` in \output and `baseline_model.pkl` with R² = 0.7036
 **Runtime**: 5-10 minutes (no web scraping)
 
-### Step 5: Run Interactive Dashboard
+<img width="2084" height="1474" alt="04_shap_dependence_plots" src="https://github.com/user-attachments/assets/7c41b846-2eb1-42d3-ae2c-44c9247994ab" />
+
+
+### Step 5: Run Interactive Dashboard for individual trail analysis
 ```bash
 streamlit run app.py
 ```
-**Features**: Interactive predictions, SHAP explanations, sensitivity analysis
-
-### Step 6: Generate SHAP Visualizations
-[Details on running SHAP analysis - adjust based on your notebook]
-
----
-
-## 📊 Visualizations Included
-
-[Space for you to specify which visualizations you have available and where they should be placed in the README]
-
-Available visualizations include:
-- Feature importance bar charts
-- SHAP summary and dependence plots
-- Model performance comparison (baseline vs. advanced)
-- Sentiment trends over time
-- Geographic distribution of trails
-- Feature distribution histograms
-- Model results from feature reduction strategies
-
-**Where to place each visualization**: [You can specify]
 
 ---
 
@@ -305,7 +296,7 @@ Available visualizations include:
 
 ### Feature Expansion
 1. **Social Media Integration**: Incorporate Twitter/Instagram mentions, hashtag trends, influencer activity
-2. **Temporal Modeling**: Track how sentiment and features change over time; predict seasonal trends
+2. **Temporal Modeling**: Better track how sentiment and features change over time; target seasonal trends
 3. **Multi-Model Ensemble**: Combine XGBoost predictions with other algorithms for enhanced robustness
 
 ### Dashboard Improvements
@@ -326,7 +317,7 @@ Available visualizations include:
 
 2. **Community Engagement is Quantifiable**: What seemed like soft, unmeasurable factors (word-of-mouth, community engagement) proved to be the strongest predictors
 
-3. **Data Leakage is Subtle**: Initially included raw photo/recording counts. Had to convert to percentages to avoid leakage (can't optimize for "more photos" if popularity naturally attracts photos)
+3. **Data Leakage is Subtle and makes reccomendations difficult**: Initially included raw photo/recording counts. Had to convert to percentages to avoid leakage, but then can't optimize for "more photos" based on number of photos as popularity naturally attracts more photos. Specifying a trail has 10,000 photos directly means it is popular, but saying 30% of reviews include photos is more standardized but less able to give advice insights.
 
 4. **User-Generated Content Trumps Natural Features**: Trail characteristics matter far less than how community perceives and engages with trails
 
@@ -396,22 +387,6 @@ Dataset: AllTrails.com
 Model: XGBoost with Sentiment Analysis
 Performance: R² = 0.8556 on 4,565 Southwest U.S. trails
 ```
-
----
-
-## ✅ Project Completion Status
-
-- ✅ Data collection and preprocessing pipeline
-- ✅ Sentiment analysis from user reviews
-- ✅ Feature engineering and optimization
-- ✅ XGBoost model training and evaluation
-- ✅ SHAP explainability analysis
-- ✅ Interactive dashboard (Streamlit)
-- ✅ Baseline model for comparison
-- ✅ Comprehensive documentation
-- ✅ GitHub repository with full code
-
-**Status**: COMPLETE and production-ready
 
 ---
 
