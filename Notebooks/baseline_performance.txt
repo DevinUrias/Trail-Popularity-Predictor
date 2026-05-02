@@ -1,0 +1,47 @@
+================================================================================
+BASELINE MODEL PERFORMANCE
+================================================================================
+
+APPROACH:
+- Input: combined_trails.csv (same as advanced model)
+- Preprocessing: Basic cleaning + merging nested columns
+- Features: ~25 numeric/boolean/categorical (no sentiment)
+- Algorithm: Gradient Boosting Regressor
+
+Training Set:
+  R² Score:  0.8254
+  RMSE:      9.5729
+  MAE:       6.4493
+
+Test Set:
+  R² Score:  0.7036
+  RMSE:      11.8882
+  MAE:       8.0592
+
+COMPARISON TO ADVANCED MODEL:
+  Baseline R² (this model):     ~0.70-0.75
+  Advanced R² (with sentiment): 0.8556
+  Improvement from sentiment:  +15-19%
+
+================================================================================
+Features (20):
+  1. avgRating
+  2. elevationGainMeters
+  3. elevationMeters
+  4. estimatedTime
+  5. lengthMeters
+  6. lengthMiles
+  7. numFeaturedPhotos
+  8. highestPoint
+  9. difficultyRating
+  10. adaAccessible
+  11. campingAvailable
+  12. dogFriendly
+  13. hasAlerts
+  14. kidFriendly
+  15. strollerFriendly
+  16. isClosed
+  17. routeType
+  18. trailType
+  19. stateName
+  20. areaType
