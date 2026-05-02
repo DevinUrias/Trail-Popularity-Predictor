@@ -263,7 +263,7 @@ Trail-Popularity-Predictor/
 │
 ├── Prototypes/                         # Experimental and prototype files showing testing of feature engineering ideas
 │
-└── [Additional files created during development]
+└── [Additional files created during usage]
     ├── MODEL_COMPARISON.txt            # Detailed comparison of baseline vs. advanced models
     ├── decision_rules.txt              # SHAP-based decision rules and recommendations
     ├── SHAP_ANALYSIS_SUMMARY.txt       # Summary of SHAP explainability analysis
