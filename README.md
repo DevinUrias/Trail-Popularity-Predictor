@@ -228,7 +228,52 @@ Alternative models tested: Random Forest (R² = 0.73), Linear models (R² = .42)
 ---
 
 ## 📁 Repository Structure
-
+```
+Trail-Popularity-Predictor/
+│
+├── README.md                           # Project documentation (you are here!)
+├── LICENSE.txt                         # MIT License
+├── requirements.txt                    # Python dependencies
+├── RUN_DASHBOARD.sh                    # Script to launch Streamlit dashboard
+│
+├── app.py                              # Streamlit interactive dashboard
+│                                       # Usage: streamlit run app.py
+│
+├── Data/                               # Data files
+│   ├── combined_trails.csv             # Raw data (6,984 trails × 300 columns)
+│   ├── preprocessed_trails.csv         # Clean data after preprocessing (4,565 × 93 columns)
+│   ├── final_model_trained.pkl         # Advanced XGBoost model (R² = 0.8556)
+│   ├── usmetros.csv                    # Metro population data for feature engineering
+│   └── config/                         # Sentiment analysis configuration
+│       ├── categories.json             # Sentiment categories (views, difficulty, crowding, conditions)
+│       ├── pos_words.txt               # Positive sentiment words
+│       └── neg_words.txt               # Negative sentiment words
+│
+├── models/                             # Trained model files
+│   ├── baseline_model.pkl              # Baseline model (R² = 0.7036, no sentiment or advanced feature engineering)
+│   └── final_model_trained.pkl         # Advanced model (R² = 0.8556, with additional features)
+│
+├── Notebooks/                          # Jupyter notebooks for analysis and training
+│   ├── Model_Streamlined_FINAL.ipynb   # MAIN: Advanced model training (XGBoost)
+│   ├── Model_Streamlined.py            # Alternate format of Final model
+│   ├── Model2a.ipynb                   # Historical model experiments
+│   ├── baseline_model.py               # Standalone baseline model script
+│   ├── combined_trails.csv             # Raw data copy, used for baseline
+│   └── baseline_performance.txt        # Baseline model performance metrics
+│
+├── Prototypes/                         # Experimental and prototype files showing testing of feature engineering ideas
+│
+└── [Additional files created during development]
+    ├── MODEL_COMPARISON.txt            # Detailed comparison of baseline vs. advanced models
+    ├── decision_rules.txt              # SHAP-based decision rules and recommendations
+    ├── SHAP_ANALYSIS_SUMMARY.txt       # Summary of SHAP explainability analysis
+    ├── feature_optimization_results.csv # Feature importance rankings
+    └── [Visualizations and analysis files]
+        ├── 02_shap_summary_bar.png     # Feature importance bar chart
+        ├── 03_shap_beeswarm.png        # Feature distributions
+        ├── 04_shap_dependence_plots.png # Top 4 features detailed analysis
+        └── 05_force_plot_*.png         # Individual prediction explanations
+```
 
 ---
 
