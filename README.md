@@ -95,25 +95,17 @@ Testing MAE:     8.06    (average prediction error: 8.06 points)
 
 <img width="2384" height="732" alt="01_feature_optimization_comparison" src="https://github.com/user-attachments/assets/fb1323c9-6314-4337-b8cd-3c7a7101b354" />
 
+"Sweet spot" in number of features was found to be 150 features, more or less features led to worse results, either via not enough data or introducing too much "static" confounding the useful data.
 
 ### Top 10 Most Important Features (SHAP Analysis)
 
-| Rank | Feature | SHAP Impact | Type |
-|------|---------|------------|------|
-| 1 | Featured Photos % | 5.46 | User-Generated |
-| 2 | Average Rating | 3.79 | User-Generated |
-| 3 | Trail Closed | 3.48 | Maintenance |
-| 4 | Collections with Photos % | 2.51 | User-Generated |
-| 5 | Trending Collections | 2.15 | User-Generated |
-| 6 | Points of Interest | 2.11 | Trail Feature |
-| 7 | Recording Count % | 1.53 | User-Generated |
-| 8 | Sentence Count (Reviews) | 1.11 | Engagement |
-| 9 | Distance to Metro | 0.98 | Location |
-| 10 | Sentiment (Views) | 0.73 | Community |
+<img width="395" height="470" alt="02_shap_summary_bar" src="https://github.com/user-attachments/assets/3f5247eb-9dd8-4a3c-9c8a-b529dfaefee1" />
 
 **SHAP Value Interpretation**: SHAP values represent the contribution of each feature to moving the model's prediction from the baseline. Higher values indicate stronger influence on popularity predictions.
 
-<img width="395" height="470" alt="02_shap_summary_bar" src="https://github.com/user-attachments/assets/3f5247eb-9dd8-4a3c-9c8a-b529dfaefee1" /><img width="392" height="470" alt="03_shap_beeswarm" src="https://github.com/user-attachments/assets/0aa2660b-6012-416f-86fa-20338acdf54f" />
+<img width="392" height="470" alt="03_shap_beeswarm" src="https://github.com/user-attachments/assets/0aa2660b-6012-416f-86fa-20338acdf54f" />
+
+Visual of all datapoints and how the given features influenced their popularity. Stronger inlfuences appear further from the median, and the magnitude of that specific value is shown in color. Red being higher values, blue being lower. 
 
 ### Explainability Methods Used
 
@@ -327,7 +319,7 @@ streamlit run app.py
 ## 📚 Technical Documentation
 
 - **Model Details**: See `Model_Streamlined_FINAL.ipynb` for training code and methodology
-- **Preprocessing Pipeline**: See `preprocess_pipeline.py` and `PREPROCESSING_GUIDE.txt` for step-by-step data cleaning
+- **Preprocessing Pipeline**: See `preprocess_pipeline.py`
 - **SHAP Analysis**: See `SHAP_ANALYSIS_SUMMARY.txt` and generated SHAP visualization files
 - **Feature Importance**: See `decision_rules.txt` for actionable recommendations based on SHAP values
 - **Baseline Comparison**: See `baseline_model.py` and `MODEL_COMPARISON.txt` for baseline model details
@@ -367,11 +359,8 @@ undetected-chromedriver>=3.5.0
 
 ## 📞 Questions & Support
 
-For questions about:
-- **Model Training**: See `Model_Streamlined_FINAL.ipynb`
-- **Data Preprocessing**: See `preprocess_pipeline.py` and `PREPROCESSING_GUIDE.txt`
-- **Dashboard Usage**: Run `streamlit run app.py` and see inline help
-- **Feature Importance**: See SHAP visualizations and `decision_rules.txt`
+For questions feel free to email me at dxu7267@mavs.uta.edu
+I will help where I can
 
 ---
 
